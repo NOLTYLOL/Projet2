@@ -1,6 +1,6 @@
 #pragma once
 #include "Map.h"
-
+#include "vector"
 
 class Entity
 {
@@ -9,8 +9,7 @@ private:
 	int Damage = 1;
 
 public:
-	int x = 0;
-	int y = 0;
+	
 
 	Entity() = default;
 	Entity(int life, int damage) : Life(life), Damage(damage) {}

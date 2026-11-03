@@ -8,3 +8,4 @@ void Entity::TakeDamage(int damage)
 	if (Life < 0)
 		Life = 0;
 };
+
