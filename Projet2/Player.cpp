@@ -12,4 +12,3 @@ void Player::movement(char touche, Vector2 direction )
 
 	
 }
-
