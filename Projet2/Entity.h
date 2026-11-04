@@ -9,7 +9,7 @@ private:
 	int Damage = 1;
 
 public:
-	
+
 
 	Entity() = default;
 	Entity(int life, int damage) : Life(life), Damage(damage) {}
