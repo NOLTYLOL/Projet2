@@ -1,4 +1,4 @@
-#include "Entity.h"
+#include "Entity.h"							//NoahD-M
 
 void Entity::TakeDamage(int damage)
 {

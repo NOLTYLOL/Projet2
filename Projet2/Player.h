@@ -1,4 +1,4 @@
-#pragma once
+#pragma once								//NoahD-M
 #include "Entity.h"
 #include "Vector2.h"
 
@@ -7,5 +7,6 @@ private:
 	Vector2 position;
 
 	void movement(char touche, Vector2 position);
-    
+
+	void Playerdeath();
 };
