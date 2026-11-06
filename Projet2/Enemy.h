@@ -8,5 +8,8 @@ private:
   int hp = 1;
 
 public:
-    Enemy();
+  Enemy();
+  void takeDamage(int dmg);
+  bool isDead() const { return dead; }
+  bool dead = false;
 };
