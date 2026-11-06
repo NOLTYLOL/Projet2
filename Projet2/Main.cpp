@@ -1,8 +1,6 @@
 #include "Game.h"
-#include "Map.h"
 
 int main() {
-    Game::getInstance();
-   
+    Game::getInstance().run();
     return 0;
 }
