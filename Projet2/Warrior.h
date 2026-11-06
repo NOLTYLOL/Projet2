@@ -8,7 +8,7 @@ public:
 	int Damage = 1;
 private:
 	void getDamage(int damage);
-	
+	void onEnnemyCollision(int damage);
 
 };
 

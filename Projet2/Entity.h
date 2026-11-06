@@ -17,5 +17,7 @@ private:
 	void TakeDamage(int finalDamage);
 	int getLife();
 	bool IsAlive();
+
+	void movement(Vector2 direction, Vector2& Newposition, Vector2& position);
 };
 
