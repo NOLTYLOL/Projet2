@@ -1,10 +1,13 @@
 #include "Entity.h"							//NoahD-M
 #include "Vector2.h"
 
-Vector2 Entity::GetPosition() const
+Vector2 Entity::GetPosition()
 {
 	return Vector2(0, 0);
 }
+Vector2 PlayerPos;
+Vector2 EnemyPos;
+
 
 void Entity::TakeDamage(int damage)
 {

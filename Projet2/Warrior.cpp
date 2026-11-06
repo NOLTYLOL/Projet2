@@ -1,19 +1,17 @@
 #include "Warrior.h"					//NoahD-M
-#include "Enemy.h"
 
-void Warrior::getDamage(int damage)
+void Warrior::getDamage()
 {
 	
-	if (damage > 0)
+	if (Damage > 0)
 	{
-		Life -= damage;
+		Life -= Damage;
 	}
 }
 
-void Warrior::onEnnemyCollision(int damage)
+void Warrior::onEnnemyCollision()
 {
-	if (Vector2::Position)
-	{
-		getDamage(damage);
+	if (Vector2(PlayerPos) == Vector2(EnemyPos))
+
+		return getDamage();
 	}
-}

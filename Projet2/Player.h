@@ -4,12 +4,9 @@
 
 class Player : public Entity {
 public:
-	Vector2 position;
 
-	void movement(char touche, Vector2 Position);
+	void movement(char touche, Vector2 direction, Vector2& position);
 
 	void Playerdeath();
-
-	
 };
 

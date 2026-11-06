@@ -5,11 +5,11 @@ class Enemy : public Entity {
 
 private:
   void death();
-  int hp = 1;
+  int Life = 1;
+  int damage = 1;
+
 
 public:
   Enemy();
-  void takeDamage(int dmg);
-  bool isDead() const { return dead; }
-  bool dead = false;
+  Vector2 Enemypos;
 };

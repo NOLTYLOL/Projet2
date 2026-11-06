@@ -5,7 +5,7 @@
 class Entity
 {
 public:
-	Vector2 GetPosition() const;
+	Vector2 GetPosition();
 	int Life;
 	int Damage;
 	bool canSwin = false;
