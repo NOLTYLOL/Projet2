@@ -9,8 +9,6 @@ public:
 	int Life;
 	int Damage;
 	bool canSwin = false;
-
-private:
 	Entity() = default;
 	Entity(int life, int damage) : Life(life), Damage(damage) {}
 	void Attack(Entity& target);
