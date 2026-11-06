@@ -1,4 +1,7 @@
+#include <iostream>						//NoahD-M
 #include "Player.h"
+#include "Vector2.h"
+
 
 void Player::movement(char touche, Vector2 direction )
 {
@@ -9,6 +12,10 @@ void Player::movement(char touche, Vector2 direction )
 	if (touche == 'd' || touche == 'D') direction.x++;
 
 	position = position + direction;
-
+}
+void Player::Playerdeath()  {
+	if (Life == 0) {
+		std::cout << "You are dead" << std::endl;
 	
+	}
 }

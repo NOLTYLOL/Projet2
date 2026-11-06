@@ -1,4 +1,10 @@
-#include "Entity.h"
+#include "Entity.h"							//NoahD-M
+#include "Vector2.h"
+
+Vector2 Entity::GetPosition() const
+{
+	return Vector2(0, 0);
+}
 
 void Entity::TakeDamage(int damage)
 {
@@ -9,3 +15,10 @@ void Entity::TakeDamage(int damage)
 		Life = 0;
 };
 
+int Entity::getLife() {
+	return Life;
+}
+
+bool Entity::IsAlive() {
+	return getLife() > 0;
+}

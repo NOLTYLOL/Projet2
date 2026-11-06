@@ -1,19 +1,21 @@
-#pragma once
+#pragma once						//NoahD-M
 #include "Map.h"
-#include "vector"
+#include "Vector2.h"
 
 class Entity
 {
-private:
-	int Life = 0;
-	int Damage = 1;
-
 public:
-	
+	Vector2 GetPosition() const;
+	int Life;
+	int Damage;
+	bool canSwin = false;
 
+private:
 	Entity() = default;
 	Entity(int life, int damage) : Life(life), Damage(damage) {}
 	void Attack(Entity& target);
 	void TakeDamage(int finalDamage);
-	
+	int getLife();
+	bool IsAlive();
 };
+

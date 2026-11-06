@@ -1,11 +1,15 @@
-#pragma once
+#pragma once								//NoahD-M
 #include "Entity.h"
 #include "Vector2.h"
 
 class Player : public Entity {
-private:
+public:
 	Vector2 position;
 
-	void movement(char touche, Vector2 position);
-    
+	void movement(char touche, Vector2 Position);
+
+	void Playerdeath();
+
+	
 };
+
