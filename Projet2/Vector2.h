@@ -5,7 +5,7 @@ struct Vector2
 	int	y = 0;
 };
 
-Vector2 operator + (static Vector2 & vectorA,static Vector2 & vectorB)
+Vector2 operator + ( Vector2 & vectorA, Vector2 & vectorB)
 {
 	Vector2 temp;
 	temp.x = vectorA.x + vectorB.x;
@@ -13,7 +13,7 @@ Vector2 operator + (static Vector2 & vectorA,static Vector2 & vectorB)
 	return temp;
 }
 
-bool operator == (static Vector2& vectorA, static Vector2& vectorB)
+bool operator == ( Vector2& vectorA, Vector2& vectorB)
 {
 	return vectorA.x == vectorB.x && vectorA.y == vectorB.y;
 }

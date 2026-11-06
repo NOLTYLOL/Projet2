@@ -20,5 +20,15 @@ int Entity::getLife() {
 }
 
 bool Entity::IsAlive() {
-	return getLife() > 0;
+	if (Life > 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+void Entity::movement(Vector2 direction, Vector2& Newposition, Vector2& position)
+{
+	Newposition = position + direction;
 }
