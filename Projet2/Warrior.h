@@ -1,17 +1,11 @@
 #pragma once						//NoahD-M
 #include "Player.h"
-#include "Vector2.h"
 #include "Enemy.h"
 
 class Warrior : public Player
 {
 public:
-	int Life = 5;
-	int Damage = 1;
-
-private:
-	void getDamage();
-	void onEnnemyCollision(Vector2);
-
+	Warrior();
+	void getDamage(int damage);
+	void onEnnemyCollision(Enemy& enemy);
 };
-
