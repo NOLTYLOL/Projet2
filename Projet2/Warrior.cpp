@@ -9,10 +9,10 @@ void Warrior::getDamage()
 	}
 }
 
-void Warrior::onEnnemyCollision(Vector2 enemyPos, int damage)
+void Warrior::onEnnemyCollision(Vector2 enemyPos)
 {
 	if (position == enemyPos)
 	{
-		getDamage(damage);
+		getDamage();
 	}
 }

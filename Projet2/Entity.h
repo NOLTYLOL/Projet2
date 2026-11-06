@@ -19,3 +19,5 @@ public:
 	void movement(Vector2 direction, Vector2& Newposition, Vector2& position);
 };
 
+
+

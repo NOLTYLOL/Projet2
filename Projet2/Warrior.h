@@ -10,8 +10,8 @@ public:
 	int Damage = 1;
 
 private:
-	void getDamage(int damage);
-	void onEnnemyCollision(Vector2 enemyPos, int damage);
+	void getDamage();
+	void onEnnemyCollision(Vector2);
 
 };
 
