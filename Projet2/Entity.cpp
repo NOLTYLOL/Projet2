@@ -1,37 +1,40 @@
 #include "Entity.h"							//NoahD-M
-#include "Vector2.h"
 
-Vector2 Entity::GetPosition()
+Vector2 Entity::GetPosition() const
 {
-	return Vector2(0, 0);
+	return position;
 }
-Vector2 PlayerPos;
-Vector2 EnemyPos;
 
+void Entity::SetPosition(Vector2 newPos)
+{
+	position = newPos;
+}
+
+void Entity::Attack(Entity& target)
+{
+	target.TakeDamage(Damage);
+}
 
 void Entity::TakeDamage(int damage)
 {
-	int finalDamage = damage;
-
-	Life -= finalDamage;
+	Life -= damage;
 	if (Life < 0)
+	{
 		Life = 0;
-};
+	}
+}
 
-int Entity::getLife() {
+int Entity::getLife() const
+{
 	return Life;
 }
 
-bool Entity::IsAlive() {
-	if (Life > 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
+bool Entity::IsAlive() const
+{
+	return Life > 0;
 }
 
-void Entity::movement(Vector2 direction, Vector2& Newposition, Vector2& position)
+void Entity::movement(Vector2 direction)
 {
-	Newposition = position + direction;
+	position = position + direction;
 }

@@ -1,18 +1,24 @@
 #include "Warrior.h"					//NoahD-M
 
-void Warrior::getDamage()
+Warrior::Warrior()
 {
-	
-	if (Damage > 0)
+	Life = 5;
+	Damage = 1;
+}
+
+void Warrior::getDamage(int damage)
+{
+	if (damage > 0)
 	{
-		Life -= Damage;
+		TakeDamage(damage);
 	}
 }
 
-void Warrior::onEnnemyCollision(Vector2 enemyPos, int damage)
+void Warrior::onEnnemyCollision(Enemy& enemy)
 {
-	if (position == enemyPos)
+	if (position == enemy.GetPosition())
 	{
-		getDamage(damage);
+		enemy.TakeDamage(Damage);
+		getDamage(enemy.Damage);
 	}
 }
