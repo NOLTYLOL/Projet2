@@ -24,12 +24,6 @@ Vector2 Player::getDirection(char touche) const
 	return direction;
 }
 
-void Player::movement(char touche)
-{
-	Vector2 direction = getDirection(touche);
-	position = position + direction;
-}
-
 void Player::Playerdeath()
 {
 	if (Life == 0)

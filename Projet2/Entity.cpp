@@ -10,11 +10,6 @@ void Entity::SetPosition(Vector2 newPos)
 	position = newPos;
 }
 
-void Entity::Attack(Entity& target)
-{
-	target.TakeDamage(Damage);
-}
-
 void Entity::TakeDamage(int damage)
 {
 	Life -= damage;

@@ -9,7 +9,6 @@ class Player : public Entity
 {
 public:
 	Vector2 getDirection(char touche) const;
-	void movement(char touche);
 	void Playerdeath();
 	virtual bool handleSpecialAction(char touche, std::vector<Enemy*>& enemies);
 };

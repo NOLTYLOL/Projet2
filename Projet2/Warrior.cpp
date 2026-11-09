@@ -6,24 +6,8 @@ Warrior::Warrior()
 	Damage = 1;
 }
 
-void Warrior::getDamage(int damage)
-{
-	if (damage > 0)
-	{
-		TakeDamage(damage);
-	}
-}
-
-void Warrior::onEnnemyCollision(Enemy& enemy)
-{
-	if (position == enemy.GetPosition())
-	{
-		onCollision(enemy);
-	}
-}
-
 void Warrior::onCollision(Entity& other)
 {
 	other.TakeDamage(Damage);
-	getDamage(other.Damage);
+	TakeDamage(other.Damage);
 }

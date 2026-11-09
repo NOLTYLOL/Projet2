@@ -24,11 +24,9 @@ private:
     Enemy* findEnemyAt(Vector2 pos) const;
     void drawCellOrEntity(int x, int y) const;
     void draw() const;
-    void showSpellEffect() const;
     bool tryMovePlayer(Vector2 dir);
     void playerTurn();
     bool tryMoveEnemy(Enemy* enemy, Vector2 dir);
-    void moveSingleEnemy(Enemy* enemy);
     void enemiesTurn();
 
     LevelParser parser;

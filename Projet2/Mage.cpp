@@ -1,4 +1,4 @@
-#include "Mage.h"
+#include "Mage.h" //NoahD-M
 
 Mage::Mage()
 {
@@ -8,7 +8,7 @@ Mage::Mage()
 
 void Mage::zoneDamage(std::vector<Enemy*>& enemies)
 {
-	for (size_t i = 0; i < enemies.size(); i++)
+	for (int i = 0; i < enemies.size(); i++)
 	{
 		if (!enemies[i]->IsAlive())
 		{

@@ -16,7 +16,6 @@ public:
 
 	Vector2 GetPosition() const;
 	void SetPosition(Vector2 newPos);
-	void Attack(Entity& target);
 	void TakeDamage(int finalDamage);
 	int getLife() const;
 	bool IsAlive() const;

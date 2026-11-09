@@ -1,4 +1,4 @@
-#include "Game.h"   //Noah-erlos
+#include "Game.h"   //Noah-erlos   //NoahD-M   //Gilio
 #include <conio.h>
 #include <cstdlib>
 #include <ctime>
@@ -8,9 +8,10 @@
 #include "Mage.h"
 #include "Zombie.h"
 #include "HeadlessZombie.h"
+#include "ZombieSwimmer.h"
 
 Game::Game() {
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    std::srand(std::time(nullptr));
 }
 
 Game::~Game() {
@@ -24,7 +25,7 @@ Game& Game::getInstance() {
 }
 
 void Game::clearEnemies() {
-    for (size_t i = 0; i < enemies.size(); i++) {
+    for (int i = 0; i < enemies.size(); i++) {
         delete enemies[i];
     }
     enemies.clear();
@@ -34,10 +35,10 @@ void Game::choosePlayerClass() {
     std::system("cls");
     std::cout << "Choisis ta classe :\n";
     std::cout << "1 - Warrior (5 PV, tue les ennemis au contact)\n";
-    std::cout << "2 - Mage (1 PV, Espace = sort autour de lui)\n";
+    std::cout << "2 - Mage (1 PV, E = sort autour de lui)\n";
     char choix = 0;
     while (choix != '1' && choix != '2') {
-        choix = static_cast<char>(_getch());
+        choix = _getch();
     }
     delete player;
     isMage = (choix == '2');
@@ -50,12 +51,14 @@ void Game::choosePlayerClass() {
 
 void Game::spawnEnemies() {
     clearEnemies();
-    for (size_t i = 0; i < level.enemies.size(); i++) {
+    for (int i = 0; i < level.enemies.size(); i++) {
         Position p = level.enemies[i].pos;
         char type = level.enemies[i].type;
         Vector2 startPos = { p.x, p.y };
-        if (type == 'h' || (type == 'X' && i % 2 == 1)) {
+        if (type == 'h') {
             enemies.push_back(new HeadlessZombie(startPos));
+        } else if (type == 'S') {
+            enemies.push_back(new ZombieSwimmer(startPos));
         } else {
             enemies.push_back(new Zombie(startPos));
         }
@@ -73,7 +76,7 @@ bool Game::loadLevel(int num) {
 }
 
 Enemy* Game::findEnemyAt(Vector2 pos) const {
-    for (size_t i = 0; i < enemies.size(); i++) {
+    for (int i = 0; i < enemies.size(); i++) {
         if (enemies[i]->IsAlive() && enemies[i]->GetPosition() == pos) {
             return enemies[i];
         }
@@ -115,23 +118,6 @@ void Game::draw() const {
     std::cout << '\n';
 }
 
-void Game::showSpellEffect() const {
-    Vector2 center = player->GetPosition();
-    HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(console, CYAN);
-    for (int dy = -1; dy <= 1; dy++) {
-        for (int dx = -1; dx <= 1; dx++) {
-            Vector2 p = { center.x + dx, center.y + dy };
-            if ((dx != 0 || dy != 0) && level.map.isInside({ p.x, p.y })) {
-                COORD coord = { static_cast<SHORT>(p.x), static_cast<SHORT>(p.y) };
-                SetConsoleCursorPosition(console, coord);
-                std::cout << '*';
-            }
-        }
-    }
-    Sleep(180);
-}
-
 bool Game::tryMovePlayer(Vector2 dir) {
     if (dir.x == 0 && dir.y == 0) {
         return false;
@@ -145,24 +131,19 @@ bool Game::tryMovePlayer(Vector2 dir) {
         player->onCollision(*enemy);
     }
     if (player->IsAlive() && findEnemyAt(newPos) == nullptr) {
-        player->SetPosition(newPos);
+        player->movement(dir);
     }
     return true;
 }
 
 void Game::playerTurn() {
     while (true) {
-        int code = _getch();
-        if (code == 0 || code == 224) {
-            _getch();
-            continue;
-        }
-        char touche = static_cast<char>(code);
+        char touche = _getch();
         if (player->handleSpecialAction(touche, enemies)) {
-            showSpellEffect();
             return;
         }
-        if (tryMovePlayer(player->getDirection(touche))) {
+        Vector2 dir = player->getDirection(touche);
+        if (tryMovePlayer(dir)) {
             return;
         }
     }
@@ -183,30 +164,15 @@ bool Game::tryMoveEnemy(Enemy* enemy, Vector2 dir) {
         player->onCollision(*enemy);
         return true;
     }
-    enemy->SetPosition(newPos);
+    enemy->movement(dir);
     return true;
 }
 
-void Game::moveSingleEnemy(Enemy* enemy) {
-    Vector2 playerPos = player->GetPosition();
-    for (int essai = 0; essai < 4; essai++) {
-        Vector2 dir = enemy->getDirection(playerPos);
-        if (tryMoveEnemy(enemy, dir)) {
-            return;
-        }
-        if (enemy->getSymbol() == 'Z') {
-            Vector2 pos = enemy->GetPosition();
-            int dy = (playerPos.y > pos.y) ? 1 : ((playerPos.y < pos.y) ? -1 : 0);
-            tryMoveEnemy(enemy, { 0, dy });
-            return;
-        }
-    }
-}
-
 void Game::enemiesTurn() {
-    for (size_t i = 0; i < enemies.size(); i++) {
+    for (int i = 0; i < enemies.size(); i++) {
         if (enemies[i]->IsAlive() && player->IsAlive()) {
-            moveSingleEnemy(enemies[i]);
+            Vector2 dir = enemies[i]->getDirection(player->GetPosition());
+            tryMoveEnemy(enemies[i], dir);
         }
     }
 }

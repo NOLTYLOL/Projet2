@@ -14,7 +14,7 @@ namespace {
     }
 
     bool isEnemyChar(char c) {
-        return c == 'X' || c == 'Z' || c == 'h' || c == 'S';
+        return c == 'Z' || c == 'h' || c == 'S';
     }
 }
 
