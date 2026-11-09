@@ -26,7 +26,7 @@ void Mage::zoneDamage(std::vector<Enemy*>& enemies)
 
 bool Mage::handleSpecialAction(char touche, std::vector<Enemy*>& enemies)
 {
-	if (touche == ' ')
+	if (touche == 'e' || touche == 'E')
 	{
 		zoneDamage(enemies);
 		return true;

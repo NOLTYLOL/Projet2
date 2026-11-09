@@ -110,7 +110,7 @@ void Game::draw() const {
     std::cout << "Niveau: " << currentLevel << " | PV: " << player->getLife()
               << " | ZQSD: Bouger";
     if (isMage) {
-        std::cout << " | Espace: Sort";
+        std::cout << " | E: Sort";
     }
     std::cout << '\n';
 }
