@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -142,6 +142,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HeadlessZombie.cpp" />
     <ClCompile Include="LevelParser.cpp" />
     <ClCompile Include="Mage.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -149,17 +150,20 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="Warrior.cpp" />
+    <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="HeadlessZombie.h" />
     <ClInclude Include="LevelParser.h" />
     <ClInclude Include="Mage.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Warrior.h" />
+    <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,7 @@
 #include "Player.h"						//NoahD-M
 #include <iostream>
 
-void Player::movement(char touche)
+Vector2 Player::getDirection(char touche) const
 {
 	Vector2 direction = { 0, 0 };
 
@@ -21,7 +21,12 @@ void Player::movement(char touche)
 	{
 		direction.x++;
 	}
+	return direction;
+}
 
+void Player::movement(char touche)
+{
+	Vector2 direction = getDirection(touche);
 	position = position + direction;
 }
 
@@ -31,4 +36,9 @@ void Player::Playerdeath()
 	{
 		std::cout << "You are dead" << std::endl;
 	}
+}
+
+bool Player::handleSpecialAction(char touche, std::vector<Enemy*>& enemies)
+{
+	return false;
 }

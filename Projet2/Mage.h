@@ -1,9 +1,12 @@
 #pragma once
+#include <vector>
 #include "Player.h"
+#include "Enemy.h"
 
 class Mage : public Player
 {
 public:
 	Mage();
-	void zoneDamage(int damage);
+	void zoneDamage(std::vector<Enemy*>& enemies);
+	bool handleSpecialAction(char touche, std::vector<Enemy*>& enemies) override;
 };

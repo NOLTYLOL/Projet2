@@ -18,7 +18,12 @@ void Warrior::onEnnemyCollision(Enemy& enemy)
 {
 	if (position == enemy.GetPosition())
 	{
-		enemy.TakeDamage(Damage);
-		getDamage(enemy.Damage);
+		onCollision(enemy);
 	}
+}
+
+void Warrior::onCollision(Entity& other)
+{
+	other.TakeDamage(Damage);
+	getDamage(other.Damage);
 }

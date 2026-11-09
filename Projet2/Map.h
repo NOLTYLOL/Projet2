@@ -33,6 +33,7 @@ public:
 
     bool isInside(Position p) const;
     bool isExit(Position p) const;
+    bool isWalkable(Position p, bool canSwim) const;
     Terrain getCell(Position p) const;
     void setCell(Position p, Terrain terrain);
     void drawCell(Position p) const;

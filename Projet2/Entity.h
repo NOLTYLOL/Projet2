@@ -12,6 +12,7 @@ public:
 
 	Entity() = default;
 	Entity(int life, int damage) : Life(life), Damage(damage) {}
+	virtual ~Entity() = default;
 
 	Vector2 GetPosition() const;
 	void SetPosition(Vector2 newPos);
@@ -20,4 +21,5 @@ public:
 	int getLife() const;
 	bool IsAlive() const;
 	void movement(Vector2 direction);
+	virtual void onCollision(Entity& other);
 };

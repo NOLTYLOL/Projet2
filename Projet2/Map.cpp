@@ -20,6 +20,20 @@ bool Map::isExit(Position p) const {
     return getCell(p) == EXIT;
 }
 
+bool Map::isWalkable(Position p, bool canSwim) const {
+    if (!isInside(p)) {
+        return false;
+    }
+    Terrain terrain = getCell(p);
+    if (terrain == WALL || terrain == MOUNTAIN) {
+        return false;
+    }
+    if (terrain == WATER && !canSwim) {
+        return false;
+    }
+    return true;
+}
+
 Terrain Map::getCell(Position p) const {
     return cells[p.y][p.x];
 }

@@ -8,4 +8,5 @@ public:
 	Warrior();
 	void getDamage(int damage);
 	void onEnnemyCollision(Enemy& enemy);
+	void onCollision(Entity& other) override;
 };

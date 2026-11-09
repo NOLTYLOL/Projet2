@@ -38,3 +38,8 @@ void Entity::movement(Vector2 direction)
 {
 	position = position + direction;
 }
+
+void Entity::onCollision(Entity& other)
+{
+	TakeDamage(other.Damage);
+}
