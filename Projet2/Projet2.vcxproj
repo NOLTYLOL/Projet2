@@ -151,6 +151,7 @@
     <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="Warrior.cpp" />
     <ClCompile Include="Zombie.cpp" />
+    <ClCompile Include="ZombieSwimmer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Warrior.h" />
     <ClInclude Include="Zombie.h" />
+    <ClInclude Include="ZombieSwimmer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
